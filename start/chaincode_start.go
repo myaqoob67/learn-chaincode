@@ -58,7 +58,7 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 	// Handle different functions
 	if function == "init" {													//initialize the chaincode state, used as reset
 		return t.Init(stub, "init", args)
-	}else if function == "write" {    				// New addition for lab2:
+	}else if function == "write" {    				// New addition for lab2:  added
         return t.write(stub, args)
     }
 // New addition for lab2:
@@ -67,6 +67,9 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 
 	return nil, errors.New("Received unknown function invocation: " + function)
 }
+
+
+//Modified this funtion too
 
 // Query is our entry point for queries
 func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
